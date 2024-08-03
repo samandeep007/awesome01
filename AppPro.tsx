@@ -1,12 +1,37 @@
 import React from 'react'
-import { SafeAreaView, View, Text } from 'react-native'
+import {
+    View,
+    Text,
+    StyleSheet,
+    useColorScheme
+} from 'react-native'
 
-export default function AppPro() {
-  return (
-    <SafeAreaView>
-        <View>
-            <Text>Samandeep Singh</Text>
+export default function AppPro(): JSX.Element {
+
+    const isDarkMode = useColorScheme() === 'dark'
+
+
+    return (
+        <View style={styles.container}>
+            <Text style={isDarkMode ? styles.darkText : styles.lightText}>Samandeep Singh</Text>
         </View>
-    </SafeAreaView>
-  )
+    )
 }
+
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: 'center'
+    },
+
+    darkText: {
+        color: "white"
+    },
+
+    lightText: {
+        color: "red"
+    }
+
+
+})
